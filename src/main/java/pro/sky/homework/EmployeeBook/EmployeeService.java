@@ -44,7 +44,4 @@ public class EmployeeService {
         return !staff.containsValue(candidate);
     }
 
-    public static String printstaff() {
-        return staff.toString();
-    }
 }
