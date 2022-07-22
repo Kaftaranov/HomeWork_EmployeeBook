@@ -33,10 +33,10 @@ public class EmployeeService {
     }
 
     public static String findEmployee(String name, String surname) {
-        if (employeeNotExists(name, surname))  {
-           throw new EmployeeNotFound();
+        if (employeeNotExists(name, surname)) {
+            throw new EmployeeNotFound();
         }
-        return ("Employee " + staff.get(id).toString() +  " found.");
+        return ("Employee " + staff.get(id).toString() + " found.");
     }
 
     private static boolean employeeNotExists(String name, String surname) {
