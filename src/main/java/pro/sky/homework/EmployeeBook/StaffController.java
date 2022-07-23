@@ -27,13 +27,17 @@ public class StaffController {
             return EmployeeService.removeEmployee(id);
 }
 
-    @GetMapping(path = "/find")
-    public String find(@RequestParam ("name") String name, @RequestParam("surname") String surname) {
+    @GetMapping(path = "/findbyname")
+    public String findName(@RequestParam ("name") String name, @RequestParam("surname") String surname) {
         if (checkParameters(name, surname)) {
-            return EmployeeService.findEmployee(name, surname);
+            return EmployeeService.findEmployeeByName(name, surname);
         } else {
           return ("Both name and surname required!");
         }
+    }
+    @GetMapping(path = "findbyid")
+    public String findId (@RequestParam("id") int id){
+        return EmployeeService.findEmployeeById(id);
     }
 
     @GetMapping(path ="/printall")

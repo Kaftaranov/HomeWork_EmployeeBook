@@ -32,11 +32,19 @@ public class EmployeeService {
         }
     }
 
-    public static String findEmployee(String name, String surname) {
+    public static String findEmployeeByName(String name, String surname) {
         if (employeeNotExists(name, surname))  {
            throw new EmployeeNotFound();
         }
         return ("Employee " + staff.get(id).toString() +  " found.");
+    }
+
+    public static String findEmployeeById(int id) {
+        if (!staff.containsKey(id)){
+            throw new EmployeeNotFound();
+        }else {
+            return staff.get(id).toString();
+        }
     }
 
     private static boolean employeeNotExists(String name, String surname) {
