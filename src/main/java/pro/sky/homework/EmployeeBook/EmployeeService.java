@@ -1,6 +1,7 @@
 package pro.sky.homework.EmployeeBook;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,7 +14,7 @@ public class EmployeeService {
     public static String addEmployee(String name, String surname) {
         if (employeeNotExists(name, surname)) {
             id++;
-            staff.put(id, new Employee(name, surname));
+            staff.put(id, new Employee(StringUtils.capitalize(name),StringUtils.capitalize(surname)));
             return ("New employee " + staff.get(id).toString() + " was successfully " +
                     "added with Id " + id + ".");
         } else {
@@ -48,7 +49,7 @@ public class EmployeeService {
     }
 
     private static boolean employeeNotExists(String name, String surname) {
-        Employee candidate = new Employee(name, surname);
+        Employee candidate = new Employee(StringUtils.capitalize(name),StringUtils.capitalize(surname));
         return !staff.containsValue(candidate);
     }
 
